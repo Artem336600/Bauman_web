@@ -1,0 +1,75 @@
+body {
+    background: #2c2c2c;
+}
+
+.sidebar {
+    background-color: #181818;
+    color: white;
+    padding: 10px;
+    width: 100%; /* Ширина сайдбара на всю ширину экрана */
+    position: fixed;
+    top: 0;
+    left: 0; /* Сайдбар фиксируется слева */
+    height: 180px; /* Высота сайдбара по содержимому */
+    display: flex;
+    flex-direction: column; /* Элементы располагаются вертикально */
+    align-items: center; /* Центрирование элементов по горизонтали */
+    box-sizing: border-box;
+    z-index: 1000;
+}
+.sidebar h3 {
+    font-size: 50px; /* Размер шрифта заголовка */
+    margin: 0 0 25px 0; /* Отступ снизу */
+    color: White;
+}
+
+.sidebar ul {
+    display: flex; /* Располагает элементы в строку */
+    padding: 0;
+    margin: 0;
+    list-style: none; /* Убирает стандартные маркеры */
+}
+
+.sidebar ul li {
+    font-size: 25px; /* Размер шрифта для элементов списка */
+    margin-right: 15px; /* Отступ между элементами */
+    margin-right: 40px; /* Отступ между элементами */
+    display: flex;
+    align-items: center; /* Вертикальное выравнивание */
+}
+
+.sidebar ul li button {
+    font-size: 25px;
+    background: none; /* Убирает фон кнопки */
+    border: none; /* Убирает границу кнопки */
+    color: white; /* Цвет текста кнопки */
+    cursor: pointer; /* Курсор при наведении */
+    padding: 0; /* Убирает отступы кнопки */
+}
+
+.sidebar ul a {
+    text-decoration: none; /* Убирает подчеркивание */
+    color: white; /* Цвет текста */
+}
+.sidebar ul li:hover, aside ul a:hover {
+    color: #351be0;
+    text-decoration: none;
+    transform: scale(1.1);
+}
+
+h1 {
+    font-size: 2em;
+    color: #fff;
+    margin-bottom: 75px;
+}
+main {
+    margin-top: 10px; /* Отступ сверху для учета высоты фиксированного сайдбара */
+    display: grid;
+    place-items: center; /* Центрирует содержимое по горизонтали и вертикали */
+    height: calc(55vh - 20px); /* Высота минус высота сайдбара */
+    text-align: center; /* Центрирование текста */
+    color: #fff;
+    font-size: 25px;
+}
+
+

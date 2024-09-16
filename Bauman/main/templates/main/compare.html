@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% extends 'main/layout.html' %}
+
+{% block title %} Выбор {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1><strong>Какую специальность вы хотите выбрать?</strong></h1>
+        <button id='programmer-btn' class='btn btn-danger'>Программист</button>
+        <button id='engineer-btn' class='btn btn-danger'>Инженер</button>
+        <button id='economist-btn' class='btn btn-danger'>Экономист</button>
+        <button id='linguist-btn' class='btn btn-danger'>Лингвист</button>
+
+        <!-- Место для отображения текста -->
+        <div id="output" style="margin-top: 20px; font-size: 18px; font-weight: bold;"></div>
+    </div>
+
+    <!-- Включение JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const output = document.getElementById('output');
+
+            function createNewButtons() {
+                // Создаем новые кнопки
+                const newButton1 = document.createElement('button');
+                newButton1.textContent = 'Новая кнопка 1';
+                newButton1.classList.add('btn', 'btn-primary');
+                newButton1.addEventListener('click', function() {
+                    output.textContent = 'Вы нажали на Новую кнопку 1.';
+                    createAnotherButton(); // Создаем еще одну кнопку при нажатии
+                });
+
+                const newButton2 = document.createElement('button');
+                newButton2.textContent = 'Новая кнопка 2';
+                newButton2.classList.add('btn', 'btn-primary');
+                newButton2.addEventListener('click', function() {
+                    output.textContent = 'Вы нажали на Новую кнопку 2.';
+                    createAnotherButton(); // Создаем еще одну кнопку при нажатии
+                });
+
+                // Добавляем их в DOM
+                output.appendChild(newButton1);
+                output.appendChild(newButton2);
+            }
+
+            function createAnotherButton() {
+                const anotherButton = document.createElement('button');
+                anotherButton.textContent = 'Перейти на другую страницу';
+                anotherButton.classList.add('btn', 'btn-secondary');
+                anotherButton.addEventListener('click', function() {
+                    window.location.href = '{% url 'caf' %}';
+                });
+
+                // Добавляем её в DOM
+                output.appendChild(anotherButton);
+            }
+
+            document.getElementById('programmer-btn').addEventListener('click', function() {
+                output.textContent = 'Вы выбрали специальность Программист.';
+                createNewButtons();
+            });
+
+            document.getElementById('engineer-btn').addEventListener('click', function() {
+                output.textContent = 'Вы выбрали специальность Инженер.';
+                createNewButtons();
+            });
+
+            document.getElementById('economist-btn').addEventListener('click', function() {
+                output.textContent = 'Вы выбрали специальность Экономист.';
+                createNewButtons();
+            });
+
+            document.getElementById('linguist-btn').addEventListener('click', function() {
+                output.textContent = 'Вы выбрали специальность Лингвист.';
+                createNewButtons();
+            });
+        });
+    </script>
+{% endblock %}
